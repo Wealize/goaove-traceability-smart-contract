@@ -1,0 +1,12 @@
+version: "3"
+services:
+  blockchain:
+    image: trufflesuite/ganache:v7.9.2
+    container_name: ganache-berlin
+    expose:
+      - "8545"
+    ports:
+      - "8545:8545"
+    volumes:
+      - ../.docker-volumes/ganache2:/ganache_data
+    command: "--db /ganache_data --accounts 2 --secure --port 8545 --gasPrice 0 --gasLimit 80000000 --hardfork berlin --verbose"
